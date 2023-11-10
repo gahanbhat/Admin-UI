@@ -19,7 +19,7 @@ const App = () => {
     <div className="flex flex-col p-3 m-3">
       <div className="overflow-x-auto">
         <div className="min-w-full inline-block align-middle">
-          <div className="border rounded-lg divide-y divide-grey-200 focus-grey-200 dark:border-grey-700 dark:divide-grey-700 ">
+          <div className="border rounded-lg divide-y divide-grey-200 focus-grey-200  ">
             <div className="overflow-hidden">
               {fetchData.length > 0 ? (
                 <MyTable userData={fetchData} />
@@ -120,7 +120,7 @@ const MyTable = ({ userData }) => {
 
   return (
     <>
-      <div className="py-3 px-4 dark:bg-gray-700 rounded">
+      <div className="py-3 px-4  rounded-t border-b">
         <div className="flex w-full justify-between">
           <div className="relative max-w-xs">
             <label className="sr-only">Search</label>
@@ -153,52 +153,53 @@ const MyTable = ({ userData }) => {
           </button>
         </div>
       </div>
-      <table className=" min-w-full divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-700">
-        <thead className="bg-gray-50 dark:bg-gray-700">
+      <table className=" min-w-full divide-y divide-gray-200 ">
+        <thead className="bg-gray-50 ">
           <tr>
             <th scope="col" className="py-3 px-4 pr-0">
               <div className="flex items-center h-5">
                 <input
                   type="checkbox"
                   onChange={checkAllHandler}
-                  className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                  className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 "
                 />
                 <label className="sr-only">Checkbox</label>
               </div>
             </th>
             <th
               scope="col"
-              className=" px-6 py-3 text-left text-xs font-bold text-black dark:text-white uppercase"
+              className=" px-6 py-3 text-left text-xs font-bold text-black  uppercase"
             >
               ID
             </th>
             <th
               scope="col"
-              className="  px-6 py-3 text-left text-xs  font-bold text-black dark:text-white uppercase"
+              className="  px-6 py-3 text-left text-xs  font-bold text-black  uppercase"
             >
               Name
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs  font-bold text-black dark:text-white uppercase"
+              className="px-6 py-3 text-left text-xs  font-bold text-black  uppercase"
             >
               Email
             </th>
             <th
               scope="col"
-              className="px-6 py-3 text-left text-xs  font-bold text-black dark:text-white uppercase"
+              className="px-6 py-3 text-left text-xs  font-bold text-black  uppercase"
             >
               Role
             </th>
             <th
               scope="col"
-              className="px-6 py-3  text-xs  font-bold text-black dark:text-white uppercase"
+              className="px-6 py-3  text-xs  font-bold text-black  uppercase"
             >
               Action
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+
+        <tbody className="divide-y divide-gray-200  ">
           {slice.map((user, i) => {
             return user.id === editID ? (
               <tr key={i}>
@@ -208,31 +209,31 @@ const MyTable = ({ userData }) => {
                       <input
                         id="hs-table-pagination-checkbox-1"
                         type="checkbox"
-                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 "
                       />
                     </label>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200 rounded">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800  rounded">
                   {user.id}
                 </td>
                 <td>
                   <input
-                    className=" px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 dark:bg-gray-800 rounded"
+                    className=" px-6 py-4 whitespace-nowrap text-sm text-gray-800 0  rounded"
                     placeholder={user.name}
                     onChange={(e) => setEditName(e.target.value)}
                   />
                 </td>
                 <td>
                   <input
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 dark:bg-gray-800 rounded"
+                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-800   rounded"
                     placeholder={user.email}
                     onChange={(e) => setEditEmail(e.target.value)}
                   />
                 </td>
                 <td>
                   <input
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 dark:bg-gray-800 rounded"
+                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-800   rounded"
                     placeholder={user.role}
                     onChange={(e) => setEditRole(e.target.value)}
                   />
@@ -263,7 +264,7 @@ const MyTable = ({ userData }) => {
                       <input
                         id="hs-table-pagination-checkbox-1"
                         type="checkbox"
-                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+                        className="border-gray-200 rounded text-blue-600 focus:ring-blue-500 "
                         checked={selectedItems.includes(parseInt(user.id))}
                         value={user.id}
                         onChange={checkboxHandler}
@@ -271,16 +272,16 @@ const MyTable = ({ userData }) => {
                     </label>
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 ">
                   {user.id}
                 </td>
-                <td className=" px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                <td className=" px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                   {user.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                   {user.email}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 ">
                   {user.role}
                 </td>
 
@@ -317,7 +318,7 @@ const TableFooter = ({ range, setPage, page, slice }) => {
     }
   }, [slice, page, setPage]);
   return (
-    <div className="block w-auto  border  text-center text-black dark:bg-gray-700 p-2 ">
+    <div className="block w-auto  border-t rounded-b-md  text-center text-black   p-2 ">
       {range.map((el, index) => (
         <button
           key={index}
